@@ -16,7 +16,7 @@
        <tr>
         <td>#</td>
         <td><%= link_to(movie.title, movie_path(movie)) %></td>
-        <td><%= movie.information %></td>
+        <td><%= simple_format(movie.information) %></td>
         <td><%= movie.user.email %></td>
         <td>
           <% if current_user && current_user == movie.user %>
@@ -24,7 +24,7 @@
           <%= link_to("删除", movie_path(movie),   class: "btn btn-sm btn-default",
                     method: :delete, data: { confirm: "Are you sure?"} )%>
 
-          <% end %>        
+          <% end %>
        </td>
      </tr>
    <% end %>
