@@ -7,7 +7,7 @@ end
 
 def show
   @movie = Movie.find(params[:id])
-  @reviews = @movie.reviews.order("created_at DESC")
+  @reviews = @movie.reviews.recent.paginate(:page => params[:page], :per_page => 5)
 end
 
 def edit
