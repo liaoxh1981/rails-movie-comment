@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review.movie = @movie
     @review.user = current_user
 
-    if @review.save
+    if @review.save!
       redirect_to movie_path(@movie)
     else
       render :new
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
    private
 
    def review_params
-     params.require(:review).permit(:cotent)
+     params.require(:review).permit(:content)
    end
 
 end

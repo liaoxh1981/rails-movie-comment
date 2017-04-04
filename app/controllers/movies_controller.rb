@@ -7,7 +7,7 @@ end
 
 def show
   @movie = Movie.find(params[:id])
-  @reviews = @movie.reviews
+  @reviews = @movie.reviews.order("created_at DESC")
 end
 
 def edit
@@ -46,7 +46,7 @@ private
 def find_movie_and_check_permission
   @movie = Movie.find(params[:id])
 
-  if current_user != @Movie.user
+  if current_user != @movie.user
     redirect_to root_path, alert: "You have no permission."
   end
 end
