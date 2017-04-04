@@ -18,7 +18,7 @@
       <tr>
         <td> # </td>
         <td> <%= link_to(movie.title,movie_path(movie)) %> </td>
-        <td> <%= movie.information %> </td>
+        <td> <%= render_movie_information(movie) %> </td>
         <td> <%= movie.reviews.count %> </td>
         <td> <%= movie.updated_at %> </td>
       </tr>
